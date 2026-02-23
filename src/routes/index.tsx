@@ -4,17 +4,16 @@ import { AuthRoutes } from "./AuthRoutes";
 import { EmployeeRoutes } from "./EmployeeRoutes";
 import { ManagerRoutes } from "./ManagerRoutes";
 import { Loading } from "../components/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
-const isLoading = false
-const session = {
-  user: {
-    role: "employee"
-  }
-}
 
 export const Routes = () => {
+  const { session, isLoading } = useContext(AuthContext)
+
+
   function Route() {
-    switch (session.user.role) {
+    switch (session?.user.role) {
       case "employee":
         return <EmployeeRoutes />
       case "manager":
