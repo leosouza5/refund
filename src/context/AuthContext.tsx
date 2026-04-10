@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     loadUser()
-  })
+  }, [])
 
   return (
     <AuthContext.Provider value={{ session, save, isLoading }}>
